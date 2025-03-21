@@ -8,13 +8,13 @@ require('./config/database');
 const express = require('express');
 
 // Auth
-// const verifyToken = require('./middleware/verify-token');
+const verifyToken = require('./middleware/verify-token');
 
 // Controllers
-// const testJWTRouter = require('./controllers/test-jwt');
+const testJWTRouter = require('./controllers/test-jwt');
 const usersRouter = require('./controllers/users');
 // const profilesRouter = require('./controllers/profiles');
-// const hootsRouter = require('./controllers/hoots.js');
+const postsRouter = require('./controllers/posts.js');
 
 
 
@@ -30,15 +30,18 @@ const PORT = process.env.PORT || 4000;
 
 
 // Routes
-// app.use('/test-jwt', testJWTRouter); // REMOVE FOR TEST ONLY
+app.use('/test-jwt', testJWTRouter); // REMOVE FOR TEST ONLY
 app.use('/users', usersRouter);
-// app.use('/hoots', hootsRouter);
 
+
+
+//posts
+app.use('/posts', postsRouter);
 
 
 
 // Protected Routes
-// app.use(verifyToken)
+app.use(verifyToken)
 // app.use('/profiles', profilesRouter);
 
 app.listen(PORT, () => {
