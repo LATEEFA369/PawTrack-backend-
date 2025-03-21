@@ -12,7 +12,7 @@ const express = require('express');
 
 // Controllers
 // const testJWTRouter = require('./controllers/test-jwt');
-// const usersRouter = require('./controllers/users');
+const usersRouter = require('./controllers/users');
 // const profilesRouter = require('./controllers/profiles');
 // const hootsRouter = require('./controllers/hoots.js');
 
@@ -20,7 +20,7 @@ const express = require('express');
 
 
 const app = express();
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 4000;
 
 // app.use(cors());
 // app.use(morgan('dev'));
@@ -31,7 +31,7 @@ const PORT = process.env.PORT || 3000;
 
 // Routes
 // app.use('/test-jwt', testJWTRouter); // REMOVE FOR TEST ONLY
-// app.use('/users', usersRouter);
+app.use('/users', usersRouter);
 // app.use('/hoots', hootsRouter);
 
 
