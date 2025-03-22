@@ -1,6 +1,6 @@
 const dotenv = require('dotenv');
 const morgan = require('morgan');
-// const cors = require('cors');
+const cors = require('cors');
 
 dotenv.config();
 
@@ -13,18 +13,18 @@ const verifyToken = require('./middleware/verify-token');
 // Controllers
 const testJWTRouter = require('./controllers/test-jwt');
 const usersRouter = require('./controllers/users');
-// const profilesRouter = require('./controllers/profiles');
+const profilesRouter = require('./controllers/profiles');
 const postsRouter = require('./controllers/posts.js');
 
 
 
 
 const app = express();
-const PORT = process.env.PORT || 4000;
+const PORT = process.env.PORT || 4100;
 
-// app.use(cors());
-// app.use(morgan('dev'));
-// app.use(express.json());
+app.use(cors());
+app.use(morgan('dev'));
+app.use(express.json());
 
 
 
@@ -42,7 +42,7 @@ app.use('/posts', postsRouter);
 
 // Protected Routes
 app.use(verifyToken)
-// app.use('/profiles', profilesRouter);
+app.use('/profiles', profilesRouter);
 
 app.listen(PORT, () => {
   console.log('The express app is ready!');
