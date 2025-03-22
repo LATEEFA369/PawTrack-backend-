@@ -1,6 +1,7 @@
 const express = require('express');
 const verifyToken = require('../middleware/verify-token.js');
 const DM = require('../models/directMessage.js');
+const user = require('../models/user.js')
 const router = express.Router();
 
 
@@ -18,7 +19,7 @@ router.get('/messages' , async (req,res)=>{
         }
 
         // Fetch messages between two users (sorted by creation date)
-        const userMessages = await Message.find({
+        const userMessages = await DM.find({
             $or: [
                 { sender, receiver },
                 { sender: receiver, receiver: sender }
@@ -36,7 +37,7 @@ router.post ('/messages' , async(req,res)=>{
     
      try{
     const { sender, receiver, message } = req.body;
-    const newMessage = new Message({ sender, receiver, message });
+    const newMessage = new DM({ sender, receiver, message });
         await newMessage.save();
         res.status(201).json({ success: "Message sent!", message: newMessage });
     } catch (error) {
