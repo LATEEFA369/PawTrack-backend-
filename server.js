@@ -15,6 +15,7 @@ const testJWTRouter = require('./controllers/test-jwt');
 const usersRouter = require('./controllers/users');
 // const profilesRouter = require('./controllers/profiles');
 const postsRouter = require('./controllers/posts.js');
+const DMRouter = require('./controllers/DM.js');
 
 
 
@@ -32,6 +33,8 @@ const PORT = process.env.PORT || 4000;
 // Routes
 app.use('/test-jwt', testJWTRouter); // REMOVE FOR TEST ONLY
 app.use('/users', usersRouter);
+app.use('/messages' , DMRouter);
+
 
 
 

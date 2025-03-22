@@ -24,3 +24,6 @@ const directMessageSchema = new mongoose.Schema(
   }
 );
 
+const DM = mongoose.model ('DM', directMessageSchema )
+
+module.exports = DM ;

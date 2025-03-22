@@ -11,6 +11,14 @@ const userSchema = new mongoose.Schema({
         type: String,
         required: true
     },
+
+    // print_message : [
+    //          {
+    //             type : mongoose.Schema.Types.ObjectId,
+    //              ref : 'DM'
+
+    //          },
+    // ]
 });
 
 userSchema.set('toJSON', {
