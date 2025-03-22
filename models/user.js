@@ -12,13 +12,13 @@ const userSchema = new mongoose.Schema({
         required: true
     },
 
-    // print_message : [
-    //          {
-    //             type : mongoose.Schema.Types.ObjectId,
-    //              ref : 'DM'
+    print_message : [
+             {
+                type : mongoose.Schema.Types.ObjectId,
+                 ref : 'DM'
 
-    //          },
-    // ]
+             },
+    ]
 });
 
 userSchema.set('toJSON', {
