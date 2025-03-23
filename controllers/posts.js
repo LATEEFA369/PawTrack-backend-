@@ -3,6 +3,7 @@ const verifyToken = require('../middleware/verify-token.js');
 const Post = require('../models/post.js');
 const router = express.Router();
 
+
 // ========== Public Routes ===========
 
 // ========= Protected Routes =========

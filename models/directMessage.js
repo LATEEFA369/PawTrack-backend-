@@ -6,12 +6,12 @@ const directMessageSchema = new mongoose.Schema(
     sender: { 
       type: mongoose.Schema.Types.ObjectId, 
       ref: 'User', // Reference to the user who sent the message
-      required: true 
+      // required: true 
     },
     receiver: { 
       type: mongoose.Schema.Types.ObjectId, 
       ref: 'User', // Reference to the user who received the message
-      required: true 
+      // required: true 
     },
     message: { 
       type: String, 
