@@ -111,7 +111,7 @@ router.post('/:postId/comments', async (req, res) => {
     }
 });
 
-
+//// delete comment
 router.delete('/:postId/comments/:commentId', async (req, res) => {
     try {
       const post = await Post.findById(req.params.postId);
@@ -122,6 +122,20 @@ router.delete('/:postId/comments/:commentId', async (req, res) => {
       res.status(500).json(err);
     }
   });
+
+//update comment 
+router.put('/:postId/comments/:commentId', async (req, res) => {
+    try {
+      const post = await Post.findById(req.params.postId);
+      const comment = post.comments.id(req.params.commentId);
+      comment.text = req.body.text;
+      await post.save();
+      res.status(200).json({ message: 'Ok' });
+    } catch (error) {
+      res.status(500).json(error);
+    }
+  });
+  
 
 module.exports = router;
 

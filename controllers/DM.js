@@ -11,6 +11,7 @@ const router = express.Router();
 router.use(verifyToken);
 
 router.get('/messages' , async (req,res)=>{
+    console.log('Received POST request at /messages');
 
     try {
         const { sender, receiver } = req.query;

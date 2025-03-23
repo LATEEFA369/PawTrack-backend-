@@ -38,14 +38,17 @@ app.use('/messages' , DMRouter);
 
 
 
-//posts
-app.use('/posts', postsRouter);
+
+
 
 
 
 // Protected Routes
-app.use(verifyToken)
+
 app.use('/profiles', profilesRouter);
+app.use('/messages' , DMRouter);
+//posts
+app.use('/posts', postsRouter);
 
 app.listen(PORT, () => {
   console.log('The express app is ready!');
