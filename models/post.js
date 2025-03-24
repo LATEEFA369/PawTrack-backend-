@@ -50,6 +50,16 @@ const postSchema = new mongoose.Schema(
     age: {
       type: Number,
     },
+    img: {
+      type: String,
+      default: 'https://images.app.goo.gl/Hprdt5pq2WFJUpCX8'
+  },
+  imgname: {
+    type: String, // Store file name
+  },
+  imgpath: {
+    type: String, // Store file path (e.g., "uploads/pet-image.jpg")
+  },
     author: { 
       type: mongoose.Schema.Types.ObjectId, 
       ref: 'User'  
